@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const AddTask = () => {
+export const AddTask = (props) => {
     return (
         <div>
             <Sform>
-                <Sinput placeholder='Task' name='task' />
-                <Sbutton>Add</Sbutton>
+                <Sinput
+                value={props.inputVal}
+                onChange={props.onChangeInputVal}
+                placeholder='Task'/>
+                <Sbutton
+                onClick={props.onClickAddTask}
+                >Add</Sbutton>
             </Sform>
         </div>
     )

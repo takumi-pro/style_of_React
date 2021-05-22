@@ -1,26 +1,16 @@
+import React from 'react';
 import styled from 'styled-components';
-import { TodoRow } from './TodoRow';
 
-export const DoneList = () => {
+export const TodoRow = (props) => {
+    const task = props.task;
     return (
-        <div>
-            <p>DONE</p>
-            <Sul>
-                <Sli>
-                    <TodoRow></TodoRow>
-                </Sli>
-                <Sli>
-                    <TodoRow></TodoRow>
-                </Sli>
-            </Sul>
-        </div>
+        <>
+            <Sspan>{task}</Sspan>
+            <Sbutton>return</Sbutton>
+            <Sbutton>Delete</Sbutton>
+        </>
     )
 }
-
-const Sul = styled.ul`
-    list-style: none;
-    padding: 0;
-`
 
 const Sli = styled.li`
     color: #444;
