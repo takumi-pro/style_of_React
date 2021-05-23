@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TodoList = (props) => {
-    const { title, todos, flg, onClickDelete, onClickDone } = props;
+    const { title, todos, flg, onClickDelete, onClickDone, onClickReturn } = props;
     return (
         <Scontainer>
             <p>{title}</p>
@@ -17,7 +17,7 @@ export const TodoList = (props) => {
                             </>
                             :
                             <>
-                                <Sbutton>Return</Sbutton>
+                                <Sbutton onClick={() => onClickReturn(index)}>Return</Sbutton>
                                 <Sbutton onClick={() => onClickDelete(index, flg)}>Delete</Sbutton>
                             </>
                             }

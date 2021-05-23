@@ -20,7 +20,17 @@ export class Todo extends React.Component{
         this.onChangeInputVal = this.onChangeInputVal.bind(this);
         this.onClickAddTask = this.onClickAddTask.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
+        this.onClickReturn = this.onClickReturn.bind(this);
         this.onClickDone = this.onClickDone.bind(this);
+    }
+
+    onClickReturn(index) {
+        const newTodos = [...this.state.completeTodos];
+        const newIncompleteTodo = newTodos.splice(index, 1);
+        this.setState({completeTodos: newTodos});
+
+        const newIncompleteTodos = [newIncompleteTodo, ...this.state.incompleteTodos];
+        this.setState({incompleteTodos: newIncompleteTodos});
     }
 
     onClickAddTask(e) {
@@ -82,6 +92,7 @@ export class Todo extends React.Component{
                     title='DONE'
                     todos={completeTodos}
                     onClickDelete={this.onClickDelete}
+                    onClickReturn={this.onClickReturn}
                 ></TodoList>
             </Scontainer>
         )
